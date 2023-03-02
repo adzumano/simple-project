@@ -14,7 +14,7 @@ export function buildPlugins({paths}: BuildOptions): WebpackPluginInstance[] {
             chunkFilename: 'css/[name].[contenthash:8].css'
         }),
         new DefinePlugin({
-            __IS_DEV__: JSON.stringify(true)
+            IS_DEV: JSON.stringify(true)
         }),
         new ReactRefreshPlugin()
     ]

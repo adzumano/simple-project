@@ -1,2 +1,2 @@
-export {ThemeProvider} from './ui/ThemeProvider'
-export {useTheme} from "./lib/hooks/useTheme"
+export { ThemeProvider } from './ui/ThemeProvider'
+export { useTheme } from './lib/hooks/useTheme'
