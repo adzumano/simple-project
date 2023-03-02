@@ -1,7 +1,8 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true
+        es2021: true,
+        jest: true
     },
     extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:i18next/recommended'],
     overrides: [],
@@ -16,7 +17,6 @@ module.exports = {
         '@typescript-eslint/space-before-function-paren': 'off',
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
-        'i18next/no-literal-string': ['error', {markupOnly: true}]
-    },
+        'i18next/no-literal-string': ['error', { markupOnly: true }]
+    }
 }
-
