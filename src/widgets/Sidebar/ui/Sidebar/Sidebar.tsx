@@ -1,7 +1,8 @@
 import cn from 'classnames'
-import cls from './Sidebar.module.scss'
-import React, { FC, useState } from 'react'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
+import React, { FC, useState } from 'react'
+
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
     className?: string

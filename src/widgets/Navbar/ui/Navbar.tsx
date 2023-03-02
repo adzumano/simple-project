@@ -1,8 +1,9 @@
 import cn from 'classnames'
-import cls from './Navbar.module.scss'
+import { LangSwitcher } from 'features/LangSwitcher'
 import React, { FC } from 'react'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { LangSwitcher } from 'features/LangSwitcher'
+
+import cls from './Navbar.module.scss'
 
 interface NavbarProps {
     className?: string

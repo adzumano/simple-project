@@ -10,5 +10,8 @@
   "bracketSpacing": true,
   "arrowParens": "always",
   "quoteProps": "as-needed",
-  "jsxSingleQuote": false
+  "jsxSingleQuote": false,
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
