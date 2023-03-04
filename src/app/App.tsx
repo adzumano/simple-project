@@ -1,6 +1,6 @@
 import { AppRouter } from 'app/provider/router'
 import classNames from 'classnames'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
