@@ -1,4 +1,4 @@
-import { someFn } from './someFn'
+import { someFn } from 'shared/lib/some/someFn'
 
 describe('someFn', () => {
     test('test', () => {

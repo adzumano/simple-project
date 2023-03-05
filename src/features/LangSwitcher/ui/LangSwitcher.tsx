@@ -13,7 +13,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
     }
     return (
         <button className={cn(className)} onClick={onTranslate}>
-            {t('test')}
+            {i18n.language}
         </button>
     )
 }
