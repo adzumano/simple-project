@@ -3,6 +3,7 @@ import { LangSwitcher } from 'features/LangSwitcher'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { type FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Button } from 'shared/ui/Button/Button'
 
 import cls from './Sidebar.module.scss'
 
@@ -25,9 +26,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
-            <button data-testid={'sidebar-toggle'} onClick={onCollapsed}>
+            <Button data-testid={'sidebar-toggle'} onClick={onCollapsed}>
                 {t('menu')}
-            </button>
+            </Button>
         </div>
     )
 }

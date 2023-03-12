@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { FC } from 'react'
-import { Link, LinkProps } from 'react-router-dom'
+import { type FC } from 'react'
+import { Link, type LinkProps } from 'react-router-dom'
 
 import cls from './AppLink.module.scss'
 

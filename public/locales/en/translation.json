@@ -1,5 +1,7 @@
 {
   "test": "Test",
   "not_found": "Page not found",
-  "menu": "Menu"
+  "menu": "Menu",
+  "main": "Main",
+  "about": "About"
 }

@@ -4,7 +4,12 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:i18next/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'standard-with-typescript',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended'
+    ],
     overrides: [],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -17,6 +22,8 @@ module.exports = {
         '@typescript-eslint/space-before-function-paren': 'off',
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off',
+        'react/display-name': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }]
     }
 }
