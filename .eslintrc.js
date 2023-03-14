@@ -23,6 +23,7 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off',
         'react/display-name': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }]
     }

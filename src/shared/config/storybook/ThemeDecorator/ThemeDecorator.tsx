@@ -4,10 +4,10 @@ import 'app/styles/index.scss'
 
 export const ThemeDecorator =
     (theme: Theme) =>
-    (StoryComponent: Story): JSX.Element => {
-        return (
-            <div className={`app ${theme}`}>
-                <StoryComponent />
-            </div>
-        )
-    }
+        (StoryComponent: Story): JSX.Element => {
+            return (
+                <div className={`app ${theme}`}>
+                    <StoryComponent />
+                </div>
+            )
+        }
