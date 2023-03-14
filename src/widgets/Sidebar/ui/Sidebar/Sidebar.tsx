@@ -3,7 +3,11 @@ import { LangSwitcher } from 'features/LangSwitcher'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { type FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button/Button'
+import AboutIcon from 'shared/assets/icons/about.svg'
+import MainIcon from 'shared/assets/icons/main.svg'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 
 import cls from './Sidebar.module.scss'
 
@@ -26,9 +30,30 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
-            <Button data-testid={'sidebar-toggle'} onClick={onCollapsed}>
-                {t('menu')}
+            <Button
+                data-testid={'sidebar-toggle'}
+                className={cls.Sidebar__btn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                size={ButtonSize.L}
+                square
+                onClick={onCollapsed}
+            >
+                {collapsed ? '>' : '<'}
             </Button>
+            <div className={cls.Sidebar__links}>
+                <div className={cls.Sidebar__linkBlock}>
+                    <AppLink to={RoutePath.main} theme={AppLinkTheme.SECONDARY}>
+                        <MainIcon className={cls.Sidebar__icon} />
+                        <span className={cls.Sidebar__link}>{t('main')}</span>
+                    </AppLink>
+                </div>
+                <div className={cls.Sidebar__linkBlock}>
+                    <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
+                        <AboutIcon className={cls.Sidebar__icon} />
+                        <span className={cls.Sidebar__link}>{t('about')}</span>
+                    </AppLink>
+                </div>
+            </div>
         </div>
     )
 }
