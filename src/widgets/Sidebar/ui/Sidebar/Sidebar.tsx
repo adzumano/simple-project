@@ -1,3 +1,4 @@
+import { RoutePath } from 'app/provider/router'
 import cn from 'classnames'
 import { LangSwitcher } from 'features/LangSwitcher'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
@@ -5,7 +6,6 @@ import { type FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import AboutIcon from 'shared/assets/icons/about.svg'
 import MainIcon from 'shared/assets/icons/main.svg'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 
