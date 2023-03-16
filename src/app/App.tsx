@@ -5,10 +5,10 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
 import { useTheme } from './provider/ThemeProvider'
-import './styles/index.scss'
 
 const App = (): JSX.Element => {
     const { theme } = useTheme()
+
     return (
         <div className={classNames('app', theme)}>
             <Suspense fallback={'loading..'}>

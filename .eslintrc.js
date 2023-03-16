@@ -8,7 +8,8 @@ module.exports = {
         'plugin:react/recommended',
         'standard-with-typescript',
         'plugin:i18next/recommended',
-        'plugin:storybook/recommended'
+        'plugin:storybook/recommended',
+        'plugin:react-hooks/recommended'
     ],
     overrides: [],
     parserOptions: {
@@ -16,7 +17,7 @@ module.exports = {
         sourceType: 'module',
         project: ['tsconfig.json']
     },
-    plugins: ['react', 'i18next'],
+    plugins: ['react', 'i18next', 'react-hooks'],
     rules: {
         '@typescript-eslint/indent': ['error', 4],
         '@typescript-eslint/space-before-function-paren': 'off',
@@ -25,6 +26,8 @@ module.exports = {
         '@typescript-eslint/consistent-type-assertions': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         'react/display-name': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }]
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error'
     }
 }
