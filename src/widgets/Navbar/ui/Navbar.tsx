@@ -28,10 +28,12 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 </Button>
             </div>
             <Modal isOpen={isOpen} onClose={onOpen}>
-                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD
-                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD
-                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD
-                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD
+                {t(
+                    ' DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
+                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
+                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
+                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD'
+                )}
             </Modal>
         </nav>
     )
