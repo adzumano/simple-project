@@ -25,6 +25,7 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
+        '@typescript-eslint/no-confusing-void-expression': 'off',
         'react/display-name': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
         'react-hooks/rules-of-hooks': 'error',

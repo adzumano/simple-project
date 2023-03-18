@@ -1,3 +1,4 @@
+import { useTheme } from 'app/provider/ThemeProvider'
 import cn from 'classnames'
 import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { Portal } from 'shared/ui/Portal/Portal'
@@ -14,6 +15,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 300
 export const Modal: FC<ModalProps> = (props) => {
     const { className, children, isOpen = false, onClose = () => {} } = props
+    const { theme } = useTheme()
     const [isClosing, setIsClosing] = useState<boolean>(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
     const mods: Record<string, boolean> = {
@@ -49,7 +51,7 @@ export const Modal: FC<ModalProps> = (props) => {
     }, [isOpen, onKeyDown])
     return (
         <Portal>
-            <div className={cn(cls.Modal, className, mods)}>
+            <div className={cn(cls.Modal, className, theme, mods)}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
                         className={cls.content}
