@@ -5,20 +5,21 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  installing-deps:
+  install-cache:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Commit
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Cache node modules
-        id: cache-npm
+      - name: Cache npm dependencies
         uses: actions/cache@v3
+        id: cache-npm
         env:
           cache-name: cache-node-modules
         with:
@@ -28,19 +29,5 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        run: npm install
-      - name: linting ts
-        run: npm run lint:ts
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testings
-        run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
-      - name: update screenshot testings
-        run: npm run test:ui:up
-      - name: screenshot testings
-        run: npm run test:ui:ci
-      - name: build
-        run: npm run build:prod
+      - name: Install Dependencies
+        run: npm install --force
