@@ -10,7 +10,7 @@
     "build:prod": "webpack --env mode=production",
     "lint:ts": "eslint src/**/*.{ts,tsx}",
     "lint:ts:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:ts:ci": "npm run lint:ts --quiet",
+    "lint:ts:ci": "yarn run lint:ts --quiet",
     "lint:scss": "npx stylelint src/**/*.scss",
     "lint:scss:fix": "npx stylelint src/**/*.scss --fix",
     "format": "prettier --write src !**/*.{scss,css,json}",
