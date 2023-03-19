@@ -115,6 +115,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Build storybook
         run: npm run storybook:build
+      - name: Update screenshots
+        run: yarn test:ui:up
       - name: Unit tests
         run: yarn test:ui:ci
   building:
