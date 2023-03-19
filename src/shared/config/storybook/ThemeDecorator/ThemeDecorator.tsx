@@ -5,12 +5,12 @@ import 'app/styles/index.scss'
 
 export const ThemeDecorator =
     (theme: Theme) =>
-        (StoryComponent: Story): JSX.Element => {
-            return (
-                <ThemeProvider initialTheme={theme}>
-                    <div className={`app ${theme}`}>
-                        <StoryComponent />
-                    </div>
-                </ThemeProvider>
-            )
-        }
+    (StoryComponent: Story): JSX.Element => {
+        return (
+            <ThemeProvider initialTheme={theme}>
+                <div className={`app ${theme}`}>
+                    <StoryComponent />
+                </div>
+            </ThemeProvider>
+        )
+    }

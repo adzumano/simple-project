@@ -5,57 +5,47 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  install-cache:
+  installing-deps:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
     steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Cache npm dependencies
+      - name: Cache yarn dependencies
         uses: actions/cache@v3
-        id: cache-npm
-        env:
-          cache-name: cache-node-modules
+        id: yarn-cache
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Install Dependencies
-        run: npm install --force
-  lint-format:
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
+  linting-ts:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
-    needs: [install-cache]
+    needs: [ installing-deps ]
     steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Restore npm dependencies
+      - name: Restore yarn dependencies
         uses: actions/cache@v3
-        id: cache-npm
-        env:
-          cache-name: cache-node-modules
+        id: yarn-cache
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Linting Typescript
-        run: npm run lint:ts:ci
-
+            ${{ runner.os }}-yarn-
+      - name: Linting typescript
+        run: yarn lint:ts

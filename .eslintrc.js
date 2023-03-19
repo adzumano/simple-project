@@ -19,9 +19,10 @@ module.exports = {
     },
     plugins: ['react', 'i18next', 'react-hooks'],
     rules: {
-        '@typescript-eslint/indent': ['error', 4],
+        '@typescript-eslint/indent': 'off',
         '@typescript-eslint/space-before-function-paren': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react/jsx-uses-react': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
