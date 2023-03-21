@@ -1,8 +1,8 @@
 import cn from 'classnames'
+import { LoginModal } from 'features/AuthByUsername'
 import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Modal } from 'shared/ui/Modal/Modal'
 
 import cls from './Navbar.module.scss'
 
@@ -14,7 +14,11 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const onOpen = useCallback(() => {
-        setIsOpen((prev) => !prev)
+        setIsOpen(true)
+    }, [])
+
+    const onClose = useCallback(() => {
+        setIsOpen(false)
     }, [])
     return (
         <nav className={cn(cls.Navbar, className)}>
@@ -27,14 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                     {t('войти')}
                 </Button>
             </div>
-            <Modal isOpen={isOpen} onClose={onOpen}>
-                {t(
-                    ' DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
-                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
-                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD\n' +
-                        '                DSKAMDLAMDMASLDMALMDLSKAMDALKMDLSKAMDALKDMASLDMLAD'
-                )}
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={onClose} />
         </nav>
     )
 }

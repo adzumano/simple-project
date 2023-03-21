@@ -30,6 +30,8 @@ module.exports = {
         'react/display-name': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error'
+        'react-hooks/exhaustive-deps': 'error',
+        'react/prop-types': 'off',
+        'multiline-ternary': 'off'
     }
 }
