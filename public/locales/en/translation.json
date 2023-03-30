@@ -3,5 +3,6 @@
   "not_found": "Page not found",
   "menu": "Menu",
   "main": "Main",
-  "about": "About"
+  "about": "About",
+  "login_error_text": "You entered an incorrect username or password"
 }

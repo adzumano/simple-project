@@ -32,6 +32,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'react/prop-types': 'off',
-        'multiline-ternary': 'off'
+        'multiline-ternary': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off'
     }
 }
