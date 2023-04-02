@@ -8,6 +8,6 @@ describe('getCounter', () => {
         const state: DeepPartial<IStateSchema> = {
             counter: { value: 10 }
         }
-        expect(getCounter(state as IStateSchema)).toEqual({ value: 10 })
+        expect(getCounter(state)).toEqual({ value: 10 })
     })
 })
