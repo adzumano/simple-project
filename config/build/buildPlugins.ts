@@ -23,9 +23,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
 
     if (isDev) {
         plugins.push(new ReactRefreshPlugin())
-        plugins.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        }))
+        plugins.push(
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false
+            })
+        )
     }
 
     return plugins

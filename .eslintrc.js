@@ -33,6 +33,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'react/prop-types': 'off',
         'multiline-ternary': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off'
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-dynamic-delete': 'off'
     }
 }
