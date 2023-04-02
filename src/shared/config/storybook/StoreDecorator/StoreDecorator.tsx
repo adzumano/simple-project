@@ -9,7 +9,7 @@ const defaultLazyReducers: DeepPartial<ReducersMapObject<IStateSchema>> = {
 export const StoreDecorator =
     (
         state: DeepPartial<IStateSchema>,
-        lazyReducers: DeepPartial<ReducersMapObject<IStateSchema>>
+        lazyReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
     ) =>
     (StoryComponent: Story) => {
         return (
