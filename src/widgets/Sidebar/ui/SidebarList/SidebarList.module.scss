@@ -1,0 +1,11 @@
+.SidebarList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  &__block {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+}

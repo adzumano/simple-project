@@ -1,5 +1,4 @@
 import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit'
-import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { createReducerManager } from 'app/provider/StoreProvider/config/reducerManager'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
@@ -9,7 +8,7 @@ import { type IStateSchema } from '../types'
 export const createReduxStore = (
     initialState?: IStateSchema,
     lazyReducers?: ReducersMapObject<IStateSchema>
-): ToolkitStore => {
+) => {
     const rootReducers: ReducersMapObject<IStateSchema> = {
         ...lazyReducers,
         counter: counterReducer,
@@ -29,3 +28,5 @@ export const createReduxStore = (
 
     return store
 }
+
+export type TAppDispatch = ReturnType<typeof createReduxStore>['dispatch']

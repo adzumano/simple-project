@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 
 import cls from './AppLink.module.scss'
@@ -12,11 +12,11 @@ interface AppLinkProps extends LinkProps {
     className?: string
     theme?: AppLinkTheme
 }
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = memo((props) => {
     const { className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props
     return (
         <Link className={cn(cls.AppLink, className, cls[theme])} {...otherProps}>
             {children}
         </Link>
     )
-}
+})

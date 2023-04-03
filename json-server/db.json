@@ -11,5 +11,14 @@
   "users": [
     { "id": "1", "username": "admin", "password": "admin" }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first_name": "Zhaslan",
+    "last_name": "Karagoishin",
+    "age": 23,
+    "currency": "KZT",
+    "country": "Kazakhstan",
+    "city": "Uralsk",
+    "username": "admin",
+    "avatar": "https://www.w3schools.com/howto/img_avatar.png"
+  }
 }

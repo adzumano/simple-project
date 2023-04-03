@@ -1,12 +1,12 @@
 import cn from 'classnames'
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
 
 interface LangSwitcherProps {
     className?: string
 }
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className }) => {
     const { i18n } = useTranslation()
 
     const onTranslate = (): void => {
@@ -17,4 +17,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
             {i18n.language}
         </Button>
     )
-}
+})

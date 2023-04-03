@@ -1,7 +1,8 @@
 import cn from 'classnames'
 import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch'
 import { type TReducerList, useLazyReduce } from 'shared/hooks/useLazyReduce/useLazyReduce'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
@@ -25,7 +26,7 @@ const initialReducers: TReducerList = {
 
 const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
     const isLoading = useSelector(getLoginIsLoading)
@@ -44,7 +45,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
         [dispatch]
     )
 
-    const handleLogin = useCallback(() => {
+    const handleLogin = useCallback(async () => {
         dispatch(loginByUsername({ username, password }))
     }, [dispatch, username, password])
 
