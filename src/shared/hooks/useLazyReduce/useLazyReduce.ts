@@ -7,7 +7,7 @@ export type TReducerList = {
     [name in TStateSchemaKey]?: Reducer
 }
 
-type TReducerListEntry = [TStateSchemaKey, Reducer]
+// type TReducerListEntry = [TStateSchemaKey, Reducer]
 interface ILazyReduceProps {
     reducers: TReducerList
     removeAfterUnmount?: boolean
@@ -19,15 +19,15 @@ export const useLazyReduce = (props: ILazyReduceProps) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: TReducerListEntry) => {
-            store.reducerManager.add(name, reducer)
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as TStateSchemaKey, reducer)
             dispatch({ type: `@INIT ${name} reduce` })
         })
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name]: TReducerListEntry) => {
-                    store.reducerManager.remove(name)
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove(name as TStateSchemaKey)
                     dispatch({ type: `@DESTROY ${name} reduce` })
                 })
             }

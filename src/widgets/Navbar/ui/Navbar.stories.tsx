@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
 
 export const Normal = Template.bind({})
-Normal.props = {}
+Normal.args = {}
 export const Dark = Template.bind({})
-Dark.props = {}
+Dark.args = {}
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

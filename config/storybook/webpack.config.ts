@@ -17,9 +17,9 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
     // eslint-disable-next-line
     if (config.module?.rules) {
-        config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+        config.module.rules = config.module.rules.map((rule: any) => {
             // eslint-disable-next-line
-            if (/svg/.test(rule.test as string)) {
+            if (/svg/.test(rule.test)) {
                 return { ...rule, exclude: /\.svg$/i }
             }
             return rule

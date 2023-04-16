@@ -13,12 +13,12 @@ export default {
     }
 } as ComponentMeta<typeof ProfilePage>
 
-const Template: ComponentStory<typeof ProfilePage> = (args: any) => <ProfilePage {...args} />
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 
 export const Normal = Template.bind({})
-Normal.props = {}
+Normal.args = {}
 Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.props = {}
+Dark.args = {}
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
