@@ -35,5 +35,9 @@ module.exports = {
         'multiline-ternary': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off'
+    },
+    globals: {
+        __IS_DEV__: true,
+        __API__: true
     }
 }

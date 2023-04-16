@@ -9,6 +9,8 @@ import { type ICounterSchema } from 'entities/Counter'
 import { type IProfileSchema } from 'entities/Profile'
 import { type IUserSchema } from 'entities/User'
 import { type ILoginSchema } from 'features/AuthByUsername'
+import { type AxiosInstance } from 'axios'
+import { type NavigateOptions, type To } from 'react-router-dom'
 
 export interface IStateSchema {
     counter: ICounterSchema
@@ -28,4 +30,14 @@ export interface IReducerManager {
 
 export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
     reducerManager: IReducerManager
+}
+
+export interface IThunkExtraArg {
+    api: AxiosInstance
+    navigate?: (to: To, options?: NavigateOptions) => void
+}
+
+export interface IThunkConfig<T> {
+    rejectValue: T
+    extra: IThunkExtraArg
 }

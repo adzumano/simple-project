@@ -4,10 +4,13 @@ import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 
 import { type IStateSchema } from '../types'
+import { $api } from 'shared/api/api'
+import { type NavigateOptions, type To } from 'react-router-dom'
 
 export const createReduxStore = (
     initialState?: IStateSchema,
-    lazyReducers?: ReducersMapObject<IStateSchema>
+    lazyReducers?: ReducersMapObject<IStateSchema>,
+    navigate?: (to: To, options?: NavigateOptions) => void
 ) => {
     const rootReducers: ReducersMapObject<IStateSchema> = {
         ...lazyReducers,
@@ -16,10 +19,18 @@ export const createReduxStore = (
     }
     const reducerManager = createReducerManager(rootReducers)
 
-    const store = configureStore<IStateSchema>({
+    const store = configureStore({
         reducer: reducerManager.reduce,
-        devTools: IS_DEV,
-        preloadedState: initialState
+        devTools: __IS_DEV__,
+        preloadedState: initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: $api,
+                    navigate
+                }
+            }
+        })
     })
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
