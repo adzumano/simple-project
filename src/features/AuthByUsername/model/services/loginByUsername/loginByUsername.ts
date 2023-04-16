@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { type IThunkConfig } from 'app/provider/StoreProvider/types'
 import { type IUser, userActions } from 'entities/User'
 import i18n from 'shared/config/i18n/i18n'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
-import { type IThunkConfig } from 'app/provider/StoreProvider/types'
 
 interface ILoginByUsernameProps {
     username: string
@@ -13,10 +13,7 @@ export const loginByUsername = createAsyncThunk<IUser, ILoginByUsernameProps, IT
     async (data, thunkAPI) => {
         const { extra, dispatch, rejectWithValue } = thunkAPI
         try {
-            const response = await extra.api.post<IUser>(
-                '/login',
-                data
-            )
+            const response = await extra.api.post<IUser>('/login', data)
 
             if (!response.data) {
                 throw new Error()
