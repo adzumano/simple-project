@@ -35,7 +35,8 @@ module.exports = {
         'multiline-ternary': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
-        '@typescript-eslint/no-invalid-void-type': 'off'
+        '@typescript-eslint/no-invalid-void-type': 'off',
+        '@typescript-eslint/no-misused-promises': 'off'
     },
     globals: {
         __IS_DEV__: true,

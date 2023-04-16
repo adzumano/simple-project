@@ -1,7 +1,5 @@
 import cn from 'classnames'
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData'
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError'
-import { getProfileLoading } from 'entities/Profile/model/selectors/getProfileLoading/getProfileLoading'
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -17,8 +15,6 @@ interface ProfileCardProps {
 export const ProfileCard: FC<ProfileCardProps> = ({ className }) => {
     const { t } = useTranslation()
     const data = useSelector(getProfileData)
-    const error = useSelector(getProfileError)
-    const isLoading = useSelector(getProfileLoading)
 
     return (
         <div className={cn(cls.ProfileCard, className)}>
